@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Book a call</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        h1{
+            text-align: center;
+            color: orange;
+        }
+        p{
+            text-align: center;
+        }
+        hr{
+            width: 720px;
+            border: 1px solid;
+            margin: 20px;
+            border-color: lightslategray;
+        }
+        label{
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"]{
+            width: 700px;
+            padding: 10px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: lightgray;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+        input[type="date"],
+        input[type="time"]{
+            width: 337px;
+            padding: 10px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: lightgray;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"]{
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: orange;
+            color: white;
+            
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+    <h1>Book a call</h1>
+    <p>Book a call slot and our representative will call you within 1hr of selected time.</p>
+    <hr>
+    <form onsubmit="saveToLocalStorage(event)">
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required><br>
+
+        <label for="time">Time for call:</label>
+        <input type="date" id="date" name="date" required>
+        <input type="time" id="time" name="time" required><br>
+
+        <input type="submit" value="GET A CALL">
+    
+    </form>
+    </fieldset>
+
+    <script>
+        function saveToLocalStorage(event){
+            event.preventDefault();
+            const name = event.target.name.value;
+            const email = event.target.email.value;
+            const phone = event.target.phone.value;
+            const date = event.target.date.value;
+            const time = event.target.time.value;
+
+            localStorage.setItem('name',name);
+            localStorage.setItem('email',email);
+            localStorage.setItem('phone',phone);
+            localStorage.setItem('date',date);
+            localStorage.setItem('time',time);
+        }
+    </script>
+</body>
+
+</html>
